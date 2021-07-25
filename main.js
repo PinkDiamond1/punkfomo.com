@@ -1932,3 +1932,18 @@ const dataParsed = data.map((ob) => ({
   usd_price: ob.data.avg_usd_sale_price,
   week: ob.data.week,
 }));
+
+const ed = new Date("2018-08-21T00:00:00.000Z").getTime();
+const sd = new Date("2018-12-21T00:00:00.000Z").getTime();
+
+console.log("sd ", sd);
+
+var result = dataParsed.filter((d) => {
+  var time = new Date(d.week).getTime();
+
+  console.log("time ", time);
+  console.log("ed ", ed);
+  console.log("sd ", sd);
+  return time < ed && time > sd;
+});
+console.log("result ", result);
