@@ -31,3 +31,10 @@ body {
 .pixelated {
   image-rendering: pixelated;
 }
+
+.btn {
+  background-color: #e22bb0;
+  box-shadow: 6px 6px #000;
+  color: #fff;
+  border: 3px solid #000;
+}
