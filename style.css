@@ -10,3 +10,20 @@ body {
     url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Cryptopunks.png/1600px-Cryptopunks.png")
       repeat bottom;
 }
+
+.credit {
+  border-top-right-radius: 6px;
+  position: fixed;
+  bottom: 21px;
+  left: 14px;
+  bottom: 0;
+  left: 0;
+  border-left: none;
+  border-bottom: none;
+  cursor: pointer;
+  z-index: 1002;
+  font-weight: 800;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-central) !important;
+  border: none !important;
+}
