@@ -27,3 +27,7 @@ body {
   box-shadow: var(--box-shadow-central) !important;
   border: none !important;
 }
+
+.pixelated {
+  image-rendering: pixelated;
+}
