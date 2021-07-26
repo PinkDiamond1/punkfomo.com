@@ -1,0 +1,12 @@
+body {
+  /* background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Cryptopunks.png/1600px-Cryptopunks.png") */
+  /* repeat bottom; */
+  background-size: cover;
+
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.88)
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Cryptopunks.png/1600px-Cryptopunks.png")
+      repeat bottom;
+}
