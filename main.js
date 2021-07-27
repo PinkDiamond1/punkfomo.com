@@ -1933,20 +1933,38 @@ const dataParsed = data.map((ob) => ({
   week: ob.data.week,
 }));
 
-const ed = new Date("2018-08-21T00:00:00.000Z").getTime();
-const sd = new Date("2018-12-21T00:00:00.000Z").getTime();
+// const ed = new Date("2018-08-21T00:00:00.000Z").getTime();
+// const sd = new Date("2018-12-21T00:00:00.000Z").getTime();
 
-console.log("sd ", sd);
+document.querySelector("#submit").addEventListener("click", function () {
+  const invested = document.querySelector("#price").value;
+  const month = document.querySelector("#month").value;
+  const year = document.querySelector("#year").value;
 
-var result = dataParsed.filter((d) => {
-  var time = new Date(d.week).getTime();
+  var sd = new Date(year, month, 1, 0, 0, 0, 0).getTime();
+  var ed = new Date(year, month, 30, 0, 0, 0, 0).getTime();
 
-  console.log("time ", time);
-  console.log("ed ", ed);
-  console.log("sd ", sd);
-  return time < ed && time > sd;
+  var result = dataParsed.filter((d) => {
+    var time = new Date(d.week).getTime();
+
+    return time < ed && time > sd;
+  });
+
+  const investedPrice = result[0].usd_price;
+
+  const todayPrice = dataParsed[dataParsed.length - 1].usd_price;
+
+  const gainz = (invested / investedPrice) * todayPrice;
+
+  document.querySelector("#ask").style.display = "none";
+
+  document.querySelector("#show").style.display = "block";
+
+  document.querySelector("#show-price").innerHTML = invested;
+  document.querySelector("#show-month").innerHTML = month;
+  document.querySelector("#show-year").innerHTML = year;
+  document.querySelector("#show-profit").innerHTML = gainz;
 });
-console.log("result ", result);
 
 // add later confetti
 // var myCanvas = document.createElement("canvas");

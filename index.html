@@ -31,7 +31,8 @@
         </div>
         <div class="flex flex-col items-center justify-center space-y-10 text-6xl mt-24 " id="ask">
             <div>
-                If invested <span>$<input type="number" class="bg-gray-100 w-64 border text-gray-900"></span>
+                If invested <span>$<input type="number" value="" placeholder="amount" id="price"
+                        class="bg-gray-100 w-64 border text-gray-900 outline-none"></span>
 
             </div>
             <div>
@@ -39,21 +40,21 @@
 
             </div>
             <div>
-                on <span><select name="" id="" class="bg-gray-100 border text-gray-900">
-                        <option value="Jan">January</option>
-                        <option value="Feb">February</option>
-                        <option value="March">March</option>
-                        <option value="Apr">April</option>
-                        <option value="May">May</option>
-                        <option value="Jun">June</option>
-                        <option value="Jul">July</option>
-                        <option value="Aug">August</option>
-                        <option value="Sept">September</option>
-                        <option value="Oct">October</option>
-                        <option value="Nov">November</option>
-                        <option value="Dec">December</option>
+                on <span><select name="" id="month" class="outline-none bg-gray-100 border text-gray-900">
+                        <option value="0">January</option>
+                        <option value="1">February</option>
+                        <option value="2">March</option>
+                        <option value="3">April</option>
+                        <option value="4">May</option>
+                        <option value="5">June</option>
+                        <option value="6">July</option>
+                        <option value="7">August</option>
+                        <option value="8">September</option>
+                        <option value="9">October</option>
+                        <option value="10">November</option>
+                        <option value="11">December</option>
                     </select></span>
-                <span><select name="" id="" class="bg-gray-100 border text-gray-900">
+                <span><select name="" id="year" class="outline-none bg-gray-100 border text-gray-900">
                         <option value="2017">2017</option>
                         <option value="2018">2018</option>
                         <option value="2019">2019</option>
@@ -65,24 +66,25 @@
             </div>
             <div class="">
                 <button
-                    class="btn border-2 border-gray-900  bg-opacity-100 hover:text-gray-900 hover:bg-gray-100 text-white py-0 px-12 mt-6 text-2xl btn leading-loose bg-indigo-500">SUBMIT</button>
+                    class="btn border-2 border-gray-900  bg-opacity-100 hover:text-gray-900 hover:bg-gray-100 text-white py-0 px-12 mt-6 text-2xl btn leading-loose bg-indigo-500"
+                    id="submit">Show Gains</button>
             </div>
         </div>
         <!-- Starts reveal -->
-        <div class="flex flex-col items-center justify-center space-y-10 text-5xl mt-24 " id="show">
+        <div class="flex flex-col items-center justify-center space-y-10 text-5xl mt-24  hidden" id="show">
             <div>
-                If you invested <span class="bg-green-400">$1000</span> in Crypto Punks
+                If you invested <span class="bg-green-400" id="show-price">$1000</span> in Crypto Punks
 
             </div>
 
             <div>
-                on <span class="bg-green-400">January</span>
-                <span class="bg-green-400">2017</span>
+                on <span class="bg-green-400" id="show-month">January</span>
+                <span class="bg-green-400" id="show-year">2017</span>
 
 
             </div>
             <div>
-                You would have made <span class="bg-green-400">$1010000</span>
+                You would have made $<span class="bg-green-400" id="show-profit">1010000</span>
 
 
             </div>
