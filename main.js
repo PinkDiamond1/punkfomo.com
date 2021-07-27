@@ -1950,7 +1950,7 @@ document.querySelector("#submit").addEventListener("click", function () {
     return time < ed && time > sd;
   });
 
-  if (year == 2017 && month < 6) {
+  if (year == 2017 && month < 5) {
     alert("Punk started from June 2017");
   } else {
     const investedPrice = result[0].usd_price;
