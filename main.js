@@ -1969,6 +1969,20 @@ document.querySelector("#submit").addEventListener("click", function () {
     document.querySelector("#show-profit").innerHTML = splitMille(
       gainz.toFixed(2)
     );
+
+    var status =
+      "If you invested $" +
+      splitMille(invested) +
+      " in CryptoPunks on " +
+      monthIndexToString(month) -
+      year +
+      " you would have made $" +
+      splitMille(gainz.toFixed(2)) +
+      " in profits. https://punkfomo.com";
+
+    var twitterStatus = "https://twitter.com/home?status=" + status;
+
+    document.querySelector(".twitter-share-button").href = twitterStatus;
   }
 });
 
