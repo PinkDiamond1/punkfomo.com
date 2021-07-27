@@ -1966,7 +1966,9 @@ document.querySelector("#submit").addEventListener("click", function () {
     document.querySelector("#show-price").innerHTML = splitMille(invested);
     document.querySelector("#show-month").innerHTML = monthIndexToString(month);
     document.querySelector("#show-year").innerHTML = year;
-    document.querySelector("#show-profit").innerHTML = splitMille(gainz);
+    document.querySelector("#show-profit").innerHTML = splitMille(
+      gainz.toFixed(2)
+    );
   }
 });
 
