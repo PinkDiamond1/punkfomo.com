@@ -1950,33 +1950,67 @@ document.querySelector("#submit").addEventListener("click", function () {
     return time < ed && time > sd;
   });
 
-  const investedPrice = result[0].usd_price;
+  if (year == 2017 && month < 6) {
+    alert("Punk started from June 2017");
+  } else {
+    const investedPrice = result[0].usd_price;
 
-  const todayPrice = dataParsed[dataParsed.length - 1].usd_price;
+    const todayPrice = dataParsed[dataParsed.length - 1].usd_price;
 
-  const gainz = (invested / investedPrice) * todayPrice;
+    const gainz = (invested / investedPrice) * todayPrice;
 
-  document.querySelector("#ask").style.display = "none";
+    document.querySelector("#ask").style.display = "none";
 
-  document.querySelector("#show").style.display = "block";
+    document.querySelector("#show").style.display = "block";
 
-  document.querySelector("#show-price").innerHTML = invested;
-  document.querySelector("#show-month").innerHTML = month;
-  document.querySelector("#show-year").innerHTML = year;
-  document.querySelector("#show-profit").innerHTML = gainz;
+    document.querySelector("#show-price").innerHTML = splitMille(invested);
+    document.querySelector("#show-month").innerHTML = monthIndexToString(month);
+    document.querySelector("#show-year").innerHTML = year;
+    document.querySelector("#show-profit").innerHTML = splitMille(gainz);
+  }
 });
 
-// add later confetti
-// var myCanvas = document.createElement("canvas");
-// document.appendChild(myCanvas);
+function monthIndexToString(i) {
+  if (i == 0) return "January";
+  if (i == 1) return "Febuary";
+  if (i == 2) return "March";
+  if (i == 3) return "April";
+  if (i == 4) return "May";
+  if (i == 5) return "June";
+  if (i == 6) return "July";
+  if (i == 7) return "Agust";
+  if (i == 8) return "September";
+  if (i == 9) return "October";
+  if (i == 10) return "November";
+  if (i == 11) return "December";
+}
 
-// var myConfetti = confetti.create(myCanvas, {
-//   resize: true,
-//   useWorker: true,
-// });
-// myConfetti({
-//   particleCount: 100,
-//   spread: 160,
-//   // any other options from the global
-//   // confetti function
-// });
+function splitMille(n, separator = ",") {
+  // Cast to string
+  let num = n + "";
+
+  // Test for and get any decimals (the later operations won't support them)
+  let decimals = "";
+  if (/\./.test(num)) {
+    // This regex grabs the decimal point as well as the decimal numbers
+    decimals = num.replace(/^.*(\..*)$/, "$1");
+  }
+
+  // Remove decimals from the number string
+  num = num
+    .replace(decimals, "")
+    // Reverse the number string through Array functions
+    .split("")
+    .reverse()
+    .join("")
+    // Split into groups of 1-3 characters (with optional supported character "-" for negative numbers)
+    .match(/[0-9]{1,3}-?/g)
+    // Add in the mille separator character and reverse back
+    .join(separator)
+    .split("")
+    .reverse()
+    .join("");
+
+  // Put the decimals back and output the formatted number
+  return `${num}${decimals}`;
+}
