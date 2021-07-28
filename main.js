@@ -1999,6 +1999,24 @@ function monthIndexToString(i) {
   if (i == 11) return "December";
 }
 
+function validDate(year, month) {
+  if (year == 2017 && month < 5) {
+    document.querySelector("#month").value = 5;
+  }
+}
+
+document.querySelector("#month").addEventListener("change", (e) => {
+  validDate(document.querySelector("#year").value, e.target.value);
+});
+
+document.querySelector("#year").addEventListener("change", (e) => {
+  validDate(e.target.value, document.querySelector("#month").value);
+});
+validDate(
+  document.querySelector("#year").value,
+  document.querySelector("#month").value
+);
+
 function splitMille(n, separator = ",") {
   // Cast to string
   let num = n + "";
